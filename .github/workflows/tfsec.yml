@@ -1,0 +1,19 @@
+name: tfsec-pr-commenter
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  tfsec:
+    name: tfsec PR commenter
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@master
+      - name: tfsec
+        uses: aquasecurity/tfsec-pr-commenter-action@v1.0.2
+        with:
+          tfsec_args: --minimum-severity MEDIUM
+          github_token: ${{ github.token }}
