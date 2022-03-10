@@ -1,4 +1,0 @@
-.terraform*
-.terraform/*
-terraform.*
-lambda_function.zip
